@@ -162,6 +162,18 @@ function getByPager(){
 }
 
 
-insert();
+// create 可以直接让User直接调用，否则要使用new一个user，再使用save函数
+function create1(){
+    var doc = {username : 'model_demo_username', title : 'model_demo_title', content : 'model_demo_content'};
+    User.create(doc, function(error){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log('save ok');
+        }
+    });
+}
+
+create1();
 
 // getByConditions();
